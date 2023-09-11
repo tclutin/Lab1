@@ -18,7 +18,7 @@ namespace Lab1_algorithm
             int[] vector = new int[n];
             for (int i = 0; i < n; i++)
             {
-                vector[i] = random.Next(1, 10);
+                vector[i] = random.Next(1, 1000);
             }
             return vector;
         }
@@ -43,17 +43,35 @@ namespace Lab1_algorithm
             return result;
         }
 
+        public static int[] BubbleSort(int[] vector)
+        {
+            for (int i = 0; i < vector.Length - 1; i++)
+            {
+                for (int j = 0; j < vector.Length - i - 1; j++)
+                {
+                    if (vector[j] > vector[j + 1])
+                    {
+                        int n = vector[j];
+                        vector[j] = vector[j + 1];
+                        vector[j + 1] = n;
+                    }
+                }
+            }
+            return vector;
+        }
+
         public static void PrintVector(int[] vector)
         {
-            for (int i = 0; i < vector.Length; i++)
+            foreach (var item in vector)
             {
-                Console.WriteLine(vector[i]);
+                Console.WriteLine(item);
             }
         }
 
-        public static double Run(int n, Func<int[], long> operation)
+        public static double Run(int n, Func<int[], int[]> operation)
         {
             int[] vector = GenerateVector(n);
+            stopWatch.Reset();
             stopWatch.Start();
             operation(vector);
             stopWatch.Stop();
@@ -62,13 +80,13 @@ namespace Lab1_algorithm
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Multiply: ");
-            for (int n = 0; n <= 2000; n++)
+            Console.WriteLine("Bubbler2004: ");
+            for (int n = 1; n <= 2000; n++)
             {
                 double totalTime = 0;
                 for (int i = 0; i < 5; i++)
                 {
-                    double runTime = Run(n, MultiplyElementsVector);
+                    double runTime = Run(n, BubbleSort);
 
                     totalTime += runTime;
                     Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
