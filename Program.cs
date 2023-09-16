@@ -112,6 +112,28 @@ namespace Lab1_algorithm
             return f;
         }
 
+        public static int ClassicQuickPow(int x, int n)
+        {
+            int f = 1;
+            int c = x;
+            int k = n;
+
+            while (k != 0)
+            {
+                if (k % 2 == 0)
+                {
+                    c = c * c;
+                    k = k / 2;
+                }
+                else
+                {
+                    f = f * c;
+                    k = k - 1;
+                }
+            }
+            return f;
+        }
+
         public static void PrintVector(int[] vector)
         {
             foreach (var item in vector)
@@ -132,20 +154,21 @@ namespace Lab1_algorithm
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Bubbler2004: ");
-            for (int n = 1; n <= 2000; n++)
-            {
-                double totalTime = 0;
-                for (int i = 0; i < 5; i++)
-                {
-                    double runTime = Run(n, BubbleSort);
+            //Console.WriteLine("Bubbler2004: ");
+            //for (int n = 1; n <= 2000; n++)
+            //{
+            //    double totalTime = 0;
+            //    for (int i = 0; i < 5; i++)
+            //    {
+            //        double runTime = Run(n, BubbleSort);
 
-                    totalTime += runTime;
-                    Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
-                }
-                double averageTime = totalTime / 5;
-                Console.WriteLine($"Average time for item = {n}: {averageTime.ToString("F8")} seconds");
-            }
+            //        totalTime += runTime;
+            //        Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
+            //    }
+            //    double averageTime = totalTime / 5;
+            //    Console.WriteLine($"Average time for item = {n}: {averageTime.ToString("F8")} seconds");
+            //}
+            Console.WriteLine(QuickPow(2, 10));
         }
     }
 }
