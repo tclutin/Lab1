@@ -60,6 +60,38 @@ namespace Lab1_algorithm
             return vector;
         }
 
+        public static int FindPivot(int[] vector, int minIndex, int maxIndex)
+        {
+            int pivot = minIndex - 1;
+            int temp = 0;
+            for (int i = minIndex; i < maxIndex; i++)
+            {
+                if (vector[i] < vector[maxIndex])
+                {
+                    pivot++;
+                    temp = vector[i];
+                    vector[i] = vector[pivot];
+                    vector[pivot] = temp;
+                }
+            }
+            pivot++;
+            temp = vector[maxIndex];
+            vector[maxIndex] = vector[pivot];
+            vector[pivot] = temp;
+
+            return pivot;
+        }
+        public static void QuickSort(int[] vector, int minIndex, int maxIndex)
+        {
+            if (minIndex >= maxIndex)
+            {
+                return;
+            }
+            int pivot = FindPivot(vector, minIndex, maxIndex);
+            QuickSort(vector, minIndex, pivot - 1);
+            QuickSort(vector, pivot + 1, maxIndex);
+        }
+
         public static void PrintVector(int[] vector)
         {
             foreach (var item in vector)
