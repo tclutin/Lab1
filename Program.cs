@@ -92,6 +92,26 @@ namespace Lab1_algorithm
             QuickSort(vector, pivot + 1, maxIndex);
         }
 
+        public static int QuickPow(int x, int n)
+        {
+            int c = x;
+            int k = n;
+            int f;
+            if (k % 2 == 1)
+                f = c;
+            else
+                f = 1;
+            do
+            {
+                k = k / 2;
+                c = c * c;
+                if (k % 2 == 1)
+                    f = f * c;
+            }
+            while (k != 0);
+            return f;
+        }
+
         public static void PrintVector(int[] vector)
         {
             foreach (var item in vector)
