@@ -23,6 +23,11 @@ namespace Lab1_algorithm
             return vector;
         }
 
+        public static void ConstantFunc(int[] vector)
+        {
+            int length = vector.Length;
+        }
+
         public static long SumElementsVector(int[] vector)
         {
             long result = 0;
@@ -58,6 +63,25 @@ namespace Lab1_algorithm
                 }
             }
             return vector;
+        }
+
+        public static double GornerMethod(int[] vector, int i = 0)
+        {
+            double x = 1.5;
+            if (i >= vector.Length)
+                return 0;
+            return vector[i] + x * GornerMethod(vector, i + 1);
+        }
+
+        public static double NaiveMethod(int[] vector)
+        {
+            double sum = 0;
+            double x = 1.5;
+            for (int i = 0; i < vector.Length; i++)
+            {
+                sum += vector[i] + Math.Pow(x, i - 1);
+            }
+            return sum;
         }
 
         public static int FindPivot(int[] vector, int minIndex, int maxIndex)
