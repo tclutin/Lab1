@@ -154,21 +154,20 @@ namespace Lab1_algorithm
 
         public static void Main(string[] args)
         {
-            //Console.WriteLine("Bubbler2004: ");
-            //for (int n = 1; n <= 2000; n++)
-            //{
-            //    double totalTime = 0;
-            //    for (int i = 0; i < 5; i++)
-            //    {
-            //        double runTime = Run(n, BubbleSort);
+            Console.WriteLine("Bubbler2004: ");
+            for (int n = 1; n <= 2000; n++)
+            {
+                double totalTime = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    double runTime = Run(n, BubbleSort);
 
-            //        totalTime += runTime;
-            //        Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
-            //    }
-            //    double averageTime = totalTime / 5;
-            //    Console.WriteLine($"Average time for item = {n}: {averageTime.ToString("F8")} seconds");
-            //}
-            Console.WriteLine(QuickPow(2, 10));
+                    totalTime += runTime;
+                    Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
+                }
+                double averageTime = totalTime / 5;
+                Console.WriteLine($"Average time for item = {n}: {averageTime.ToString("F8")} seconds");
+            }
         }
     }
 }
