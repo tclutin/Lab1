@@ -41,14 +41,33 @@ namespace Lab1_algorithm
                     double runTime = Start(vector, operation);
 
                     totalTime += runTime;
-                    // Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
                 }
                 double averageTime = totalTime / 5;
                 WriteToFile(name, $"{n}:{averageTime.ToString("F8")}\n");
-               // Console.WriteLine($"Average time for item = {n}: {averageTime.ToString("F8")} seconds");
             }
 
         }
+        public void RunDebug(string name, int lenOfArray, int countOfStart, Action<int[]> operation)
+        {
+            Console.WriteLine(name);
+            for (int n = 1; n <= lenOfArray; n++)
+            {
+                double totalTime = 0;
+                for (int i = 0; i < countOfStart; i++)
+                {
+                    int[] vector = GenerateVector(n);
+                    double runTime = Start(vector, operation);
+
+                    totalTime += runTime;
+                    Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
+                }
+                double averageTime = totalTime / 5;
+                WriteToFile(name, $"{n}:{averageTime.ToString("F8")}\n");
+                Console.WriteLine($"Average time for item = {n}: {averageTime.ToString("F8")} seconds");
+            }
+
+        }
+
         public void WriteToFile(string name, string text)
         {
             string filePath = Path.Combine(("Data/"));
