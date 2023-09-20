@@ -22,15 +22,15 @@ namespace Lab1_algorithm
             }
             return vector;
         }
-        public double Start(int[] vector, Action<int[]> operation)
+        public double Start(int[] vector, Action<int[]> algorithm)
         {
             stopWatch.Reset();
             stopWatch.Start();
-            operation(vector);
+            algorithm(vector);
             stopWatch.Stop();
             return stopWatch.Elapsed.TotalSeconds;
         }
-        public void Run(string name, int lenOfArray, int countOfStart, Action<int[]> operation)
+        public void Run(string name, int lenOfArray, int countOfStart, Action<int[]> algorithm)
         {
             for (int n = 1; n <= lenOfArray; n++)
             {
@@ -38,7 +38,7 @@ namespace Lab1_algorithm
                 for (int i = 0; i < countOfStart; i++)
                 {
                     int[] vector = GenerateVector(n);
-                    double runTime = Start(vector, operation);
+                    double runTime = Start(vector, algorithm);
 
                     totalTime += runTime;
                 }
@@ -47,7 +47,7 @@ namespace Lab1_algorithm
             }
 
         }
-        public void RunDebug(string name, int lenOfArray, int countOfStart, Action<int[]> operation)
+        public void RunDebug(string name, int lenOfArray, int countOfStart, Action<int[]> algorithm)
         {
             Console.WriteLine(name);
             for (int n = 1; n <= lenOfArray; n++)
@@ -56,7 +56,7 @@ namespace Lab1_algorithm
                 for (int i = 0; i < countOfStart; i++)
                 {
                     int[] vector = GenerateVector(n);
-                    double runTime = Start(vector, operation);
+                    double runTime = Start(vector, algorithm);
 
                     totalTime += runTime;
                     Console.WriteLine($"n = {n}, time = {runTime.ToString("F8")} seconds");
@@ -67,7 +67,6 @@ namespace Lab1_algorithm
             }
 
         }
-
         public void WriteToFile(string name, string text)
         {
             string filePath = Path.Combine(("Data/"));
