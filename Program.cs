@@ -77,9 +77,9 @@ namespace Lab1_algorithm
         {
             double sum = 0;
             double x = 1.5;
-            for (int i = 0; i < vector.Length; i++)
+            for (int i = 1; i <= vector.Length; i++)
             {
-                sum += vector[i-1] + Math.Pow(x, i - 1);
+                sum += vector[i-1] * Math.Pow(x, i - 1);
             }
             return sum;
         }
