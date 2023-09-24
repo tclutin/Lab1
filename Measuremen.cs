@@ -43,7 +43,7 @@ namespace Lab1_algorithm
                     totalTime += runTime;
                 }
                 double averageTime = totalTime / 5;
-                WriteToFile(name, $"{n}:{averageTime.ToString("F8")}\n");
+                WriteToFile(name, $"{n};{averageTime.ToString("F8")}\n");
             }
 
         }

@@ -14,9 +14,11 @@ namespace Lab1_algorithm
         public static void Main(string[] args)
         {
             Measurement measurement = new Measurement();
-            measurement.Run("Tim", 2000, 5, Algorithms.Sort.TimSort);
-            measurement.Run("Merge", 2000, 5, Algorithms.Sort.MergedSort);
+            measurement.Run("TimSort", 2000, 5, Algorithms.Sort.TimSort);
+            measurement.Run("MergeSort", 2000, 5, Algorithms.Sort.MergedSort);
             measurement.Run("Sum", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
+            measurement.Run("Multiply", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
+            measurement.Run("BubbleSort", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
         }
     }
 }
