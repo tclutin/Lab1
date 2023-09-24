@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    public class Arithmetic
+    public static class Arithmetic
     {
         public static void SumElementsVector(int[] vector)
         {
@@ -25,5 +25,9 @@ namespace Algorithms
                 result *= vector[i];
             }
         }
+    }
+
+    public class Others
+    {
     }
 }
