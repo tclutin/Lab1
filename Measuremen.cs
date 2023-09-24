@@ -44,7 +44,7 @@ namespace Lab1_algorithm
                 }
                 double averageTime = totalTime / 5;
                 WriteToFile(name, $"{n};{averageTime.ToString("F8")}\n");
-            }
+             }
 
         }
         public void RunDebug(string name, int lenOfArray, int countOfStart, Action<int[]> algorithm)

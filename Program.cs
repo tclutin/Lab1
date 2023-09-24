@@ -13,12 +13,35 @@ namespace Lab1_algorithm
 
         public static void Main(string[] args)
         {
-            Measurement measurement = new Measurement();
-            measurement.Run("TimSort", 2000, 5, Algorithms.Sort.TimSort);
-            measurement.Run("MergeSort", 2000, 5, Algorithms.Sort.MergedSort);
-            measurement.Run("Sum", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
-            measurement.Run("Multiply", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
-            measurement.Run("BubbleSort", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
+
+            AlgorithmProfiler profiler = new AlgorithmProfiler();
+
+            profiler.Run("TimSortProfiler", 2000, 5, Algorithms.Sort.TimSort);
+            profiler.Run("BubblerProfiler", 2000, 5, Algorithms.Sort.BubbleSort);
+            profiler.Run("MergeProfiler", 2000, 5, Algorithms.Sort.MergedSort);
+
+            profiler.Run("SumProfiler", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
+
+            profiler.Run("MultiplyProfiler", 2000, 5, Algorithms.Arithmetic.MultiplyElementsVector);
+            profiler.Run("SumProfiler", 2000, 5, Algorithms.Arithmetic.SumElementsVector);
+
+
+            /*debug
+            var x = measurement.GenerateVector(5);
+
+            foreach ( var v in x )
+            {
+                Console.WriteLine(v);
+            }
+            for (int n = 1; n <= x.Length; n++)
+            {
+                var segment = new ArraySegment<int>(x, 0, n).ToArray();
+                foreach (var item in segment)
+                {
+                    Console.Write($"arr+{item} ");
+                }
+                Console.WriteLine();
+            }*/
         }
     }
 }
